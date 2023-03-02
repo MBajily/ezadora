@@ -1,9 +1,12 @@
 from django.shortcuts import render
+from .models import *
 
 # Create your views here.
-def collection(request):
 
-	context = {}
+def collection(request):
+	products = Product.objects.all()
+
+	context = {'products':products}
 
 	return render(request, 'store/collection.html', context)
 

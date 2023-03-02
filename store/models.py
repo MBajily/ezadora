@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from ezadora.settings import MEDIA_ROOT
 # Create your models here.
 
 class Customer(models.Model):
@@ -13,7 +14,9 @@ class Customer(models.Model):
 
 class Product(models.Model):
 	name = models.CharField(max_length=200)
-	price = models.FloatField()
+	photo = models.ImageField(upload_to=MEDIA_ROOT, null=True)
+	new_price = models.FloatField(null=True)
+	old_price = models.FloatField(null=True)
 	digital = models.BooleanField(default=False, null=True, blank=True)
 
 	def __str__(self):
