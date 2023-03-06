@@ -46,7 +46,7 @@
 								<tr>
 									<td>
 										<div class="thumb_cart">
-											<img src="{{item.product.photoURL}}" data-src="{{item.product.photoURL}}" class="lazy" alt="Image">
+											<img src="{{item.product.imageURL}}" data-src="{{item.product.imageURL}}" class="lazy" alt="Image">
 										</div>
 										<span class="item_cart">{{item.product.name}}</span>
 									</td>
@@ -59,7 +59,7 @@
 										<div class="inc button_inc">+</div><div class="dec button_inc">-</div></div>
 									</td>
 									<td>
-										<strong>${{item.product.new_price}}</strong>
+										<strong>${{item.get_total}}</strong>
 									</td>
 									<td class="options">
 										<a href="#"><i class="ti-trash"></i></a>
@@ -92,13 +92,13 @@
 				<div class="col-xl-4 col-lg-4 col-md-6">
 			<ul>
 				<li>
-					<span>Subtotal</span> $240.00
+					<span>Subtotal</span> ${{order.get_cart_total|floatformat:2}}
 				</li>
 				<li>
-					<span>Shipping</span> $7.00
+					<span>Shipping</span> $0.00
 				</li>
 				<li>
-					<span>Total</span> $247.00
+					<span>Total</span> ${{order.get_cart_total|floatformat:2}}
 				</li>
 			</ul>
 			<a href="cart-2.html" class="btn_1 full-width cart">Proceed to Checkout</a>
